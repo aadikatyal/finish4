@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="cxss/styles.css" rel="stylesheet">
+<style>
+
+body
+{
+  margin-top: 80px;
+  background-image: url("back1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover;
+}
+#myInput {
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+
+  <div class="navbar navbar-fixed-top navbar-default navbar-static-top">
+    <div class="container">
+      <a title="Home" href ="index.html" class="navbar-brand">Home<height="auto" width="18%"></a>
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse navHeaderCollapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="keyboards.html">Keyboards</a></li>
+              <li><a href="xbox.html">Xbox</a></li>
+            </ul>
+          </li>
+          <li><a href="store.html">Cart</a></li>
+          <li><a href="#contact" data-toggle="modal">Contact</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+
+    <h2>Pages Search</h2>
+
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for pages.." title="Type in a name">
+
+    <ul id="myUL">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="keyboards.html">Keyboards</a></li>
+      <li><a href="xbox.html">Xbox</a></li>
+      <li><a href="store.html">Cart</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
+
